@@ -1,0 +1,45 @@
+<HTML doctype>
+    <html>
+        <head>
+            <title>SBC: Simple BlockChain</title>
+        </head>
+
+        <body>
+
+            <div class="container">
+                <div>
+                    <table>
+                        <tr>
+                            <td>Index</td>
+                            <td>PreviousHash</td>
+                            <td>Timestamp</td>
+                            <td>Data</td>
+                            <td>Hash</td>
+                        </tr>
+                        <tr>
+                                <td>${index}</td>
+                                <td>${previousHash}</td>
+                                <td>${timestamp}</td>
+                                <td>${data}</td>
+                                <td>${hash}</td>
+                            </tr>
+                    </table>
+                </div>
+            </div>
+
+        </body>
+
+        <script src="/Block.js"></script>
+        <script>
+
+            $.ajax({
+                url: '/blocks',
+                complete: function(data) {
+                   console.log(data)
+                   var blockChain = JSON.parse(data);
+                }
+            });
+        </script>
+
+    </html>
+</HTML>
